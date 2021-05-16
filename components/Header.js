@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import HeaderIcon from './HeaderIcon';
+
 import {
   BellIcon,
   ChatIcon,
@@ -17,7 +19,7 @@ import {
 
 export default function Header() {
   return (
-    <div>
+    <div className='flex items-center p-2 lg:px-5 shadow-md sticky top-0 z-10 bg-white'>
       {/* Left */}
       <div className='flex items-center'>
         <Image
@@ -31,13 +33,24 @@ export default function Header() {
             className='h-6'
           />
           <input
-            className='flex ml-2 items-center bg-transparent outline-none placeholder-gray-500'
+            className='flex flex-shrink ml-2 items-center bg-transparent outline-none placeholder-gray-500'
             type='text'
             placeholder='Search Facebook'
           />
         </div>
       </div>
+
       {/* Middle */}
+      <div className='flex justify-center flex-grow'>
+        <div className='flex space-x-6 md:space-x-2'>
+          <HeaderIcon active Icon={HomeIcon} />
+          <HeaderIcon Icon={FlagIcon} />
+          <HeaderIcon Icon={PlayIcon} />
+          <HeaderIcon Icon={ShoppingCartIcon} />
+          <HeaderIcon Icon={UserGroupIcon} />
+        </div>
+      </div>
+
       {/* Right */}
     </div>
   )
